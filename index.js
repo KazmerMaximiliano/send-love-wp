@@ -2,11 +2,12 @@ async function sendLove(love_count) {
   (main = document.querySelector('#main')),
     (textarea = main.querySelector(`div[contenteditable="true"]`));
 
-  if (!textarea) throw new Error('No hay una conversación abierta');
+  if (!textarea) throw new Error('There is no open conversation');
 
   for (let i = 0; i < love_count; i++) {
-    const random = Math.floor(Math.random() * 8);
-    const line = ['🤍', '💜', '💙', '🩵', '💚', '💛', '🧡', '🩷'][random];
+    const hearts = ['❤️', '🤍', '💜', '💙', '🩵', '💚', '💛', '🧡', '🩷'];
+    const random = Math.floor(Math.random() * hearts.length);
+    const line = hearts[random];
 
     textarea.focus();
     document.execCommand('insertText', false, line);
